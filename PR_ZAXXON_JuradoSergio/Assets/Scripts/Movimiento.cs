@@ -1,36 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Movimiento : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
+    InicioJuego initGame;
+    [SerializeField] float speed = 30f;
     float limiteH = 18f;
     float limiteV = 20f;
     float limiteV2 = 0f;
-    // Start is called before the first frame update
-
-
-
-
+    bool alive;
     
+    // Start is called before the first frame update
     void Start()
     {
-        
-        
-
-
-
-
+        initGame = GameObject.Find("InitGame").GetComponent<InicioJuego>();
+        alive = initGame.alive;
     }
-
     // Update is called once per frame
     void Update()
     {
         MovimientoCoche();
-
     }
     void MovimientoCoche()
+        {
+        if (alive)
         {
             float posY = transform.position.y;
             float desplY = Input.GetAxis("Vertical") * speed;
@@ -44,22 +40,26 @@ public class Movimiento : MonoBehaviour
             {
                 transform.Translate(Vector3.right * desplX * Time.deltaTime);
             }
-            /*
-        * Otra manera de hacerlo
-       if(posX > limiteH && desplX > 0f )
-       {
-           transform.position = new Vector3(posX, transform.position.y, transform.position.z);
-
-       }
-       else if(posX < -limiteH && desplX <0f)
-       {
-           transform.position = new Vector3(posX, transform.position.y, transform.position.z);
-       } */
+        }
+        if ( Input.GetButtonDown("Fire1"))
+        {
+            //Hacer animacion
         }
 
-    
-    
-     
+        }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag=="Edificio")
+        {
+            alive = false;
+            initGame.juegoSpeed = 0f;
+            GameObject.Find("Coche Padre").SetActive(false);
+            SceneManager.LoadScene(0);
+        }
+    }
+
+
 
 
 
