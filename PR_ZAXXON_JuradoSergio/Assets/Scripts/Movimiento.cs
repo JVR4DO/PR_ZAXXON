@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
 public class Movimiento : MonoBehaviour
 {
     InicioJuego initGame;
     [SerializeField] float speed = 30f;
     float limiteH = 18f;
     float limiteV = 20f;
-    float limiteV2 = 0f;
+    float limiteV2 = 1.3f;
     bool alive;
     
     // Start is called before the first frame update
@@ -52,10 +53,9 @@ public class Movimiento : MonoBehaviour
     {
         if (other.gameObject.tag=="Edificio")
         {
-            alive = false;
-            initGame.juegoSpeed = 0f;
-            GameObject.Find("Coche Padre").SetActive(false);
-            SceneManager.LoadScene(0);
+            InicioJuego inicioJuego = GameObject.Find("InitGame").GetComponent<InicioJuego>();
+            inicioJuego.SendMessage("Morir");
+            
         }
     }
 

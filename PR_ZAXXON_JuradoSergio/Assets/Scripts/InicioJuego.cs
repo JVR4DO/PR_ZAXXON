@@ -19,6 +19,19 @@ public class InicioJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (alive)
+        {
+            juegoSpeed += 0.005f;
+            
+        }
+    }
+    public void Morir()
+    {
+        juegoSpeed = 0f;
+        alive = false;
+        GameObject.Find("Coche Padre").SetActive(false);
         
     }
+
+    
 }
