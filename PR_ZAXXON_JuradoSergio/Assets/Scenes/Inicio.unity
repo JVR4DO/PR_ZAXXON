@@ -434,7 +434,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 585256874}
         m_TargetAssemblyTypeName: UI_Botones, Assembly-CSharp
-        m_MethodName: cargarescenaopciones
+        m_MethodName: cargarescenahighscores
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

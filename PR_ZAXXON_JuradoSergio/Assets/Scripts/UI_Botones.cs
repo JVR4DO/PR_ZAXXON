@@ -29,6 +29,10 @@ public class UI_Botones : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void cargarescenahighscores()
+    {
+        SceneManager.LoadScene(3);
+    }
     public void Exit()
     {
         Application.Quit();

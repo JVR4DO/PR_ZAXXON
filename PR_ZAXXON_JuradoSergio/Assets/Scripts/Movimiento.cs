@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Movimiento : MonoBehaviour
 {
     InicioJuego initGame;
-    [SerializeField] float speed = 30f;
+    [SerializeField] float speed = 10f;
     float limiteH = 18f;
     float limiteV = 20f;
     float limiteV2 = 1.3f;
