@@ -17,7 +17,7 @@ public class LookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetPosition = new Vector3(playerPosition.position.x, playerPosition.position.y+2.37f, transform.position.z);
+        Vector3 targetPosition = new Vector3(playerPosition.position.x, playerPosition.position.y+2.37f, playerPosition.position.z-7f);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref camaraVelocity, smoothVelocity);
 
     }

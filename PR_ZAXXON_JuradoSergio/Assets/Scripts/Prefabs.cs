@@ -54,7 +54,6 @@ public class Prefabs : MonoBehaviour
         float posZ = transform.position.z;
         float edificiosiniciales = (posZ - posZedificio1) / distance;
         edificiosiniciales = Mathf.Round(edificiosiniciales);
-        print(edificiosiniciales);
         for(float n= posZedificio1; n < posZ; n += distance)
         {
             float randomX = Random.Range(-18f, 18f);
